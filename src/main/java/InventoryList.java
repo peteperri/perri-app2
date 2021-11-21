@@ -1,10 +1,15 @@
+/*
+ *  UCF COP3330 Fall 2021 Application Assignment 2 Solution
+ *  Copyright 2021 Peter Perri
+ */
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 public class InventoryList {
-    public final ObservableList<InventoryItem> inventory = FXCollections.observableArrayList();
 
-    public boolean addItem(String name, float value, String serialNumber){
+    private final ObservableList<InventoryItem> inventory = FXCollections.observableArrayList();
+
+    public boolean addItem(String name, String value, String serialNumber){
         if(InventoryItem.nameIsValid(name) && InventoryItem.valueIsValid(value) && InventoryItem.serialNumberIsValid(serialNumber)){
             inventory.add(new InventoryItem(name, value, serialNumber));
             return true;
