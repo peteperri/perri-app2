@@ -1,0 +1,22 @@
+[
+  {
+    "name": "shrek1",
+    "value": "$0.00",
+    "serialNumber": "A-123-123-111"
+  },
+  {
+    "name": "shrek2",
+    "value": "$0.00",
+    "serialNumber": "A-123-123-112"
+  },
+  {
+    "name": "shrek3",
+    "value": "$0.00",
+    "serialNumber": "A-123-123-114"
+  },
+  {
+    "name": "shrek4",
+    "value": "$0.00",
+    "serialNumber": "A-123-123-115"
+  }
+]

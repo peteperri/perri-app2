@@ -48,6 +48,8 @@ public class InventoryManagerController {
 
         //initialize fxml function handles setting up the TableView and all of its TableColumns
         //this means that editing the tableview is not testable, since editing is handled by javafx
+        //sorting the tableview is also not testable, since it's using a basic feature of the tableview and not
+        //sorting programmatically
         itemNameView.setCellFactory(TextFieldTableCell.forTableColumn());
         itemNameView.setOnEditCommit(event -> {
             //if the name entered is validated,
@@ -123,7 +125,7 @@ public class InventoryManagerController {
                 return "Error: Name must be between 2\n and 256 characters.";
             }
             else if(!(InventoryItem.valueIsValid(projectedValue))){
-                return "Error: Value cannot be negative\n or empty.";
+                return "Error: Value cannot be negative";
             }
             else if(!(InventoryItem.serialNumberIsValid(projectedSerialNumber))){
                 return "Error: Serial Number must be in\n format A-XXX-XXX-XXX, where A \nis a letter and X is either a digit or \nletter.";
@@ -496,5 +498,10 @@ public class InventoryManagerController {
             }
         }
         return searchedItems;
+    }
+
+    //getter so tests can access inventory
+    public InventoryList getInventory(){
+        return this.inventory;
     }
 }

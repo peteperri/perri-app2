@@ -76,6 +76,10 @@ public class InventoryItem {
         }
     }
 
+    public String toString(){
+        return "Name: " + name + "\nValue: " + value + "\nSerial Number: " + serialNumber;
+    }
+
     public static boolean nameIsValid(String name){
         //if the name is between 2 and 256 characters in length (inclusive)
         //return true, otherwise return false

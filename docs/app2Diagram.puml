@@ -10,53 +10,65 @@
 -String name
 -String value
 -String serialNumber
-+InventoryItem(String name, String value, String )
-+String toString()
-+void setDescription(String description)
-+void setDueDate(String dueDate)
-+void setCompleted(boolean completed)
-+String getDescription()
-+String getDueDate()
-+boolean getCompleted()
-+{static} List<Item> getToDoList()
-+{static} void removeFromList(Item item)
++InventoryItem(String name, String value, String serialNumber)
++String getName()
++String getValue()
++String getSerialNumber()
++boolean setName(String name)
++boolean setValue(String value)
++boolean setSerialNumber(String serialNumber)
++{static} boolean nameIsValid(String name)
++{static} boolean valueIsValid(String value)
++{static} boolean serialNumberIsValid(String serialNumber)
+-{static} String removeDollarSign(String value)
 }
 
 +class InventoryController{
--TextField descriptionField
--CheckBox doneCheckBoxChecked
--TextField dueDateField
+-TableView<InventoryItem> inventoryView
+-TableColumn<InventoryItem, String> itemNameView
+-TableColumn<InventoryItem, String> valueView
+-TableColumn<InventoryItem, String> serialNumView
+-TextField nameField
+-TextField valueField
+-TextField serialField
+-TextField searchBar
+-RadioButton byNameButton
+-CheckBox clearCheckBox
 -Label infoLabel
--CheckBox showCompletedCheckBox
--CheckBox showIncompleteCheckBox
--TableColumn<Item, Boolean> doneView
--TableColumn<Item, String> dueDateView
--TableColumn<Item, String> taskView
--TableView<Item, String> listView
+-InventoryList inventory
 -int index
+-{static} String FILE_NOT_FOUND_MESSAGE
+-{static}  String FILE_WROTE_MESSAGE
+-{static} String IMPORT_SUCCESSFUL_MESSAGE
+
 void initialize()
 void addItemButtonClicked(ActionEvent event)
+String addItemToInventory(String projectedName, String projectedValue, String projectedSerialNumber)
+-void displayItem()
+boolean serialIsNotDuplicate(String serialNumber)
+void clearTextFields()
+void removeItemButtonClicked(ActionEvent event)
 void clearListButtonClicked(ActionEvent event)
 void exportButtonClicked(ActionEvent event)
-+void exportToDoList(File selectedFile)
+String determineType(File file)
+void exportTSV(File file)
+void exportHTML(File file)
+void exportJSON(File file)
 void importButtonClicked(ActionEvent event)
-+void importToDoList(File selectedFile)
-void removeItemButtonClicked(ActionEvent event)
-void showDoneChecked(ActionEvent event)
-void showNotDoneChecked(ActionEvent event)
-+void populateCompleteOrIncompleteList(boolean completed)
--void uncheck()
--void clear()
--void displayItem()
-+void createItem()
-+void addItemToList(String description, String dueDate, boolean isChecked)
--void addAndDisplayItem(String description, String dueDate, boolean completed)
--void validateDuplicates()
-+void removeItemFromList()
+void importInventoryFromTSV(File file)
+void importInventoryFromHTML(File file)
+void importInventoryFromJSON(File file)
+void searchButtonClicked(ActionEvent event)
+ObservableList displaySearchedItems(String searchString, boolean searchingByName)
+
 }
 
 +class InventoryList{
-
+- ObservableList<InventoryItem> inventory
++boolean addItem(String name, String value, String serialNumber)
++void removeItem(InventoryItem item)
++void clearList()
++ObservableList<InventoryItem> getInventory()
 }
 
 
