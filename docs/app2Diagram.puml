@@ -17,6 +17,7 @@
 +boolean setName(String name)
 +boolean setValue(String value)
 +boolean setSerialNumber(String serialNumber)
++String toString()
 +{static} boolean nameIsValid(String name)
 +{static} boolean valueIsValid(String value)
 +{static} boolean serialNumberIsValid(String serialNumber)
@@ -60,7 +61,7 @@ void importInventoryFromHTML(File file)
 void importInventoryFromJSON(File file)
 void searchButtonClicked(ActionEvent event)
 ObservableList displaySearchedItems(String searchString, boolean searchingByName)
-
++InventoryList getInventory()
 }
 
 +class InventoryList{
